@@ -33,7 +33,7 @@ public class ProduitService {
             throw new RuntimeException("Le produit à supprimer n'existe pas");
         }
         produits.remove(id);
-    
+    }
     public void mettreAJourProduit(Long id, Produit produit) {
         verifierDonneesProduit(produit);
         if (!produits.containsKey(id)) {
