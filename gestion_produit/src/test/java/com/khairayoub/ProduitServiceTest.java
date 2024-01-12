@@ -45,4 +45,10 @@ public class ProduitServiceTest {
         assertEquals(150.0, found.getPrix(), 0.0);
         assertEquals(5, found.getQuantite());
     }
+    
+    @Test
+    public void testSupprimerProduit() {
+        produitService.supprimerProduit(1L);
+        assertNull(produitService.getProduit(1L));
+    }
 }
