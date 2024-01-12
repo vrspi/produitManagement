@@ -20,4 +20,9 @@ public class ProduitService {
             throw new IllegalArgumentException("Prix et quantité doivent être positifs");
         }
     }
+
+
+    public Produit getProduit(Long id) {
+        return produits.get(id);
+    }
 }

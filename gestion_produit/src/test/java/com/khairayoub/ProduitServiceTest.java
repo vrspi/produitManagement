@@ -20,4 +20,12 @@ public class ProduitServiceTest {
         produitService.ajouterProduit(produit);
         assertEquals(produit, produitService.produits.get(1L));
     }
+
+
+    @Test
+    public void testGetProduit() {
+        Produit found = produitService.getProduit(1L);
+        assertNotNull(found);
+        assertEquals("Produit Test", found.getNom());
+    }
 }
