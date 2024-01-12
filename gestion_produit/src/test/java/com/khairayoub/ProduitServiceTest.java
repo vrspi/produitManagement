@@ -48,6 +48,9 @@ public class ProduitServiceTest {
 
     @Test
     public void testSupprimerProduit() {
+        Produit produit = new Produit(1L, "Produit Test", 100.0, 10);
+
+        produitService.ajouterProduit(produit);
         produitService.supprimerProduit(1L);
         assertNull(produitService.getProduit(1L));
     }
