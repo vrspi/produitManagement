@@ -45,10 +45,23 @@ public class ProduitServiceTest {
         assertEquals(150.0, found.getPrix(), 0.0);
         assertEquals(5, found.getQuantite());
     }
-    
+
     @Test
     public void testSupprimerProduit() {
         produitService.supprimerProduit(1L);
         assertNull(produitService.getProduit(1L));
     }
+
+@Test(expected = IllegalArgumentException.class)
+    public void testVerifierDonneesProduitPrixNegatif() {
+        Produit produitInvalide = new Produit(2L, "Produit Invalide", -100.0, 10);
+        produitService.ajouterProduit(produitInvalide);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testVerifierDonneesProduitQuantiteNegative() {
+        Produit produitInvalide = new Produit(3L, "Produit Invalide", 100.0, -10);
+        produitService.ajouterProduit(produitInvalide);
+    }
+    
 }
