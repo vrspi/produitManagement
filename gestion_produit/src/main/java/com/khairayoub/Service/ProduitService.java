@@ -27,10 +27,19 @@ public class ProduitService {
     }
 
 
+
     public void supprimerProduit(Long id) {
         if (!produits.containsKey(id)) {
             throw new RuntimeException("Le produit à supprimer n'existe pas");
         }
         produits.remove(id);
+    
+    public void mettreAJourProduit(Long id, Produit produit) {
+        verifierDonneesProduit(produit);
+        if (!produits.containsKey(id)) {
+            throw new RuntimeException("Le produit n'existe pas");
+        }
+        produits.put(id, produit);
+
     }
 }
