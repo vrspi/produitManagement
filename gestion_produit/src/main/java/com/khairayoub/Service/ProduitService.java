@@ -25,4 +25,13 @@ public class ProduitService {
     public Produit getProduit(Long id) {
         return produits.get(id);
     }
+
+    
+    public void mettreAJourProduit(Long id, Produit produit) {
+        verifierDonneesProduit(produit);
+        if (!produits.containsKey(id)) {
+            throw new RuntimeException("Le produit n'existe pas");
+        }
+        produits.put(id, produit);
+    }
 }
